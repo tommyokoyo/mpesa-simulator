@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/mpesa-simulator")
+@RequestMapping("/mpesa-simulator/v1")
 public class hello {
 
     @GetMapping("/hello")

@@ -21,7 +21,9 @@ public class SecurityConfiguration {
     public SecurityFilterChain configureFilter(HttpSecurity http) throws Exception {
         http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authorizeRequests -> authorizeRequests
-                        .requestMatchers("/mpesa-simulator/hello").permitAll()
+                        .requestMatchers("/mpesa-simulator/v1/hello").permitAll()
+                        .requestMatchers("/mpesa-simulator/v1/auth/token").permitAll()
+                        .requestMatchers("/mpesa-simulator/v1/auth/login").permitAll()
                         .anyRequest().authenticated())
                 .addFilterBefore(authenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
