@@ -24,6 +24,7 @@ public class SecurityConfiguration {
                         .requestMatchers("/mpesa-simulator/v1/hello").permitAll()
                         .requestMatchers("/mpesa-simulator/v1/auth/token").permitAll()
                         .requestMatchers("/mpesa-simulator/v1/auth/login").permitAll()
+                        .requestMatchers("/mpesa-simulator/v1/auth/add-user").authenticated()
                         .anyRequest().authenticated())
                 .addFilterBefore(authenticationFilter, UsernamePasswordAuthenticationFilter.class);
 

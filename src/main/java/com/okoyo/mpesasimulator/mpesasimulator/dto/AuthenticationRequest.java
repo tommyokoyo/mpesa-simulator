@@ -1,18 +1,13 @@
 package com.okoyo.mpesasimulator.mpesasimulator.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
 
+@Getter
 public class AuthenticationRequest {
-    @JsonProperty("username")
-    private  String username;
+    @JsonProperty("email")
+    private  String email;
     @JsonProperty("password")
     private  String password;
 
-    public String getUsername() {
-        return username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
 }
