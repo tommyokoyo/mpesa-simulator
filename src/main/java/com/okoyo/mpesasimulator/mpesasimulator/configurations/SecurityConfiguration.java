@@ -22,9 +22,11 @@ public class SecurityConfiguration {
         http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authorizeRequests -> authorizeRequests
                         .requestMatchers("/mpesa-simulator/v1/hello").permitAll()
+                        .requestMatchers("mpesa-simulator/v1/callbacks").permitAll()
                         .requestMatchers("/mpesa-simulator/v1/auth/token").permitAll()
                         .requestMatchers("/mpesa-simulator/v1/auth/login").permitAll()
                         .requestMatchers("/mpesa-simulator/v1/auth/add-user").authenticated()
+                        .requestMatchers("/mpesa-simulator/v1/transaction/mpesa-express").authenticated()
                         .anyRequest().authenticated())
                 .addFilterBefore(authenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
